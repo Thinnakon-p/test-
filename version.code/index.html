@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Transparent Theme with Centered Clock</title>
+    <style>
+        /* =================================== */
+        /* Basic Styles            */
+        /* =================================== */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWMxZTcza3kzb2Q5dzZocHdlMWVnb3lhN3BvaThsemttYmhuZjI1YSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/J6JazAkCVLId91L4yM/giphy.gifhttps://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2NtdWZmaGxiaGx3NmY5M3UzcmlkbDlvOG4yMTdkNTczd2ZyYnUyaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/5iYAMIM8H8pWjBoPit/giphy.gif'); /* GIF as background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #fff;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        /* =================================== */
+        /* Navigation              */
+        /* =================================== */
+        nav {
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: sticky; /* Stick to the top on scroll */
+            top: 0;
+            z-index: 10;
+            width: 100%; /* Make nav full width */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ccc;
+        }
+
+        /* =================================== */
+        /* Header (Now World Clock)          */
+        /* =================================== */
+        header {
+            text-align: center;
+            padding: 40px 20px; /* Adjust padding */
+            background: transparent;
+            color: #fff;
+            animation: fadeIn 2s ease-in;
+        }
+
+        #world-clock {
+            color: #fff;
+            font-size: 5em; /* Make clock larger */
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 15px 25px; /* Adjust padding */
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            z-index: 10;
+            display: inline-block; /* Allows text-align: center to work on parent */
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px; /* Add some space below the clock */
+        }
+
+        /* =================================== */
+        /* Content                 */
+        /* =================================== */
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background: transparent;
+            width: 100%; /* Make content full width */
+            max-width: 1200px; /* Limit maximum width */
+            margin: 20px auto 0; /* Center content */
+        }
+
+        /* =================================== */
+        /* Card                  */
+        /* =================================== */
+        .card {
+            background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s, background 0.4s;
+            animation: slideUp 1s ease-in forwards;
+            backdrop-filter: blur(10px); /* Background blur effect */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Transparent border */
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        /* =================================== */
+        /* Footer                */
+        /* =================================== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: transparent;
+            color: #fff;
+            font-size: 0.9em;
+            position: fixed; /* Stick to the bottom */
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* =================================== */
+        /* Keyframes               */
+        /* =================================== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    </style>
+<body>
+    <nav>
+        <a href="index.html">หน้าหลัก</a>
+        <a href="target.html">เกี่ยวกับ</a>
+        <a href="display_items.html">บริการ</a>
+        <a href="#">ติดต่อ</a>
+    </nav>
+
+    <header>
+        <div id="world-clock">
+            <span id="current-time"></span>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="card">
+            <h2>หัวข้อที่ 1</h2>
+            <p>รายละเอียดเนื้อหาแรกของคุณ...</p>
+        </div>
+
+        <div class="card">
+            <h2>หัวข้อที่ 2</h2>
+            <p>รายละเอียดเนื้อหาต่อไป...</p>
+        </div>
+
+        <div class="card">
+            <h2>หัวข้อที่ 3</h2>
+            <p>ข้อมูลเพิ่มเติมที่น่าสนใจ...</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>สร้างด้วยความตั้งใจ ❤️ โดยคุณ</p>
+    </footer>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to display time immediately
+    </script>
+</body>
+</html>
